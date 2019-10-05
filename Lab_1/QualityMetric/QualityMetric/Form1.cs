@@ -16,21 +16,23 @@ namespace QualityMetric
         {
             InitializeComponent();
         }
-        #region
-        private void Button1_Click(object sender, EventArgs e)
-        {
-            
-        }
-        #endregion
-        //ввод первой матрицы
+
         private void EnterFirstMatrix(object sender, EventArgs e)
         {
-            
+            FirstMatrixInputWindow firstMatrix = new FirstMatrixInputWindow();
+            firstMatrix.Show();
         }
-        //ввод второй матрицы
+
         private void EnterSecondMatrix(object sender, EventArgs e)
         {
-
+            SecondMatrixInputWindow secondMatrix = new SecondMatrixInputWindow();
+            secondMatrix.Show();
+        }
+        //Вывод результата
+        private void PrintResult(object sender, EventArgs e)
+        {
+            
+            
         }
     }
 }
