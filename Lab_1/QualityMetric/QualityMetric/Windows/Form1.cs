@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QualityMetric.Entity;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -28,11 +29,15 @@ namespace QualityMetric
             SecondMatrixInputWindow secondMatrix = new SecondMatrixInputWindow();
             secondMatrix.Show();
         }
+
+
         //Вывод результата
         private void PrintResult(object sender, EventArgs e)
         {
-            
-            
+            MyMatrix.Proverka();
+            MyMatrix.NumberOfRatings();
+            textBox1.Text = MyMatrix.PrintResult();
         }
+
     }
 }

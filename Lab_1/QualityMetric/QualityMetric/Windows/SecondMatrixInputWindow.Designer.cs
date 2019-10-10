@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox10 = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -42,13 +42,13 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Введите матрицу";
             // 
-            // textBox1
+            // textBox10
             // 
-            this.textBox1.Location = new System.Drawing.Point(16, 30);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(120, 130);
-            this.textBox1.TabIndex = 1;
+            this.textBox10.Location = new System.Drawing.Point(16, 30);
+            this.textBox10.Multiline = true;
+            this.textBox10.Name = "textBox10";
+            this.textBox10.Size = new System.Drawing.Size(120, 130);
+            this.textBox10.TabIndex = 1;
             // 
             // button1
             // 
@@ -58,7 +58,7 @@
             this.button1.TabIndex = 2;
             this.button1.Text = "Сохранить";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.Button1_Click);
+            this.button1.Click += new System.EventHandler(this.SaveData_2);
             // 
             // SecondMatrixInputWindow
             // 
@@ -67,10 +67,11 @@
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(334, 221);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.textBox10);
             this.Controls.Add(this.label1);
             this.Name = "SecondMatrixInputWindow";
             this.Text = "SecondMatrixInputWindow";
+            this.Load += new System.EventHandler(this.SecondMatrixInputWindow_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -79,7 +80,7 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBox10;
         private System.Windows.Forms.Button button1;
     }
 }

@@ -46,30 +46,31 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FirstMatrixInputWindow.cs">
+    <Compile Include="Entity\MyMatrix.cs" />
+    <Compile Include="Windows\FirstMatrixInputWindow.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FirstMatrixInputWindow.Designer.cs">
+    <Compile Include="Windows\FirstMatrixInputWindow.Designer.cs">
       <DependentUpon>FirstMatrixInputWindow.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form1.cs">
+    <Compile Include="Windows\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
+    <Compile Include="Windows\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SecondMatrixInputWindow.cs">
+    <Compile Include="Windows\SecondMatrixInputWindow.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SecondMatrixInputWindow.Designer.cs">
+    <Compile Include="Windows\SecondMatrixInputWindow.Designer.cs">
       <DependentUpon>SecondMatrixInputWindow.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="FirstMatrixInputWindow.resx">
+    <EmbeddedResource Include="Windows\FirstMatrixInputWindow.resx">
       <DependentUpon>FirstMatrixInputWindow.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form1.resx">
+    <EmbeddedResource Include="Windows\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -81,7 +82,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="SecondMatrixInputWindow.resx">
+    <EmbeddedResource Include="Windows\SecondMatrixInputWindow.resx">
       <DependentUpon>SecondMatrixInputWindow.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
