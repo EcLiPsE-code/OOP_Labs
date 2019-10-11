@@ -71,7 +71,6 @@
             this.Controls.Add(this.label1);
             this.Name = "SecondMatrixInputWindow";
             this.Text = "SecondMatrixInputWindow";
-            this.Load += new System.EventHandler(this.SecondMatrixInputWindow_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

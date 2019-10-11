@@ -14,43 +14,52 @@ namespace QualityMetric
         public FirstMatrixInputWindow()
         {
             InitializeComponent();
-            this.Load += FirstMatrixInputWindow_Load;
         }
         
         private void SaveData(object sender, EventArgs e)
         {
-            string[] lines = textBox1.Text.Split('\n');
-            countRownMatrix = lines.Length;
-            countColumnMatrix = lines[0].Split(' ').Length;
-            array = new int[countRownMatrix,countColumnMatrix];
-
-            for (int i = 0; i < countRownMatrix; i++)
+            try
             {
-                string[] line = lines[i].Split(' ');
-                for (int j = 0; j < line.Length; j++)
+                string[] lines = textBox1.Text.Split('\n');
+                countRownMatrix = lines.Length;
+                countColumnMatrix = lines[0].Split(' ').Length;
+                array = new int[countRownMatrix, countColumnMatrix];
+
+                for (int i = 0; i < countRownMatrix; i++)
                 {
-                    array[i, j] = Convert.ToInt32(line[j]);
+                    string[] line = lines[i].Split(' ');
+                    for (int j = 0; j < line.Length; j++)
+                    {
+                        array[i, j] = Convert.ToInt32(line[j]);
+                    }
+                }
+                if (countColumnMatrix != countRownMatrix)
+                {
+                    throw new FormatException("Uncrottect format matrix");
+                }
+                if (array != null)
+                {
+                    MyMatrix.fact_value = array;
+                    MyMatrix.ColumnFactValue = countColumnMatrix;
+                    MyMatrix.RownFactValue = countRownMatrix;
+                    MyMatrix.ProverkaFactValue();
+
+                    MessageBox.Show("Первая матрица успешно прочитана");
+                    Close();
                 }
             }
-            if (array != null)
+            catch(FormatException ex)
             {
-                MyMatrix.fact_value = array;
-                MyMatrix.ColumnFactValue = countColumnMatrix;
-                MyMatrix.RownFactValue = countRownMatrix;
-                MessageBox.Show("Первая матрица успешно прочитана");
-                Close();
+                MessageBox.Show(ex.Message);
             }
-            else
+            catch (ArgumentException ex)
             {
-                MessageBox.Show("Матрица пустая.");
+                MessageBox.Show(ex.Message);
             }
-        }
-
-        private void FirstMatrixInputWindow_Load(object sender, EventArgs e)
-        {
-            MyMatrix.fact_value = array;
-            MyMatrix.ColumnFactValue = countColumnMatrix;
-            MyMatrix.RownFactValue = countRownMatrix;
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

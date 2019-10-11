@@ -34,9 +34,8 @@ namespace QualityMetric
         //Вывод результата
         private void PrintResult(object sender, EventArgs e)
         {
-            MyMatrix.Proverka();
             MyMatrix.NumberOfRatings();
-            textBox1.Text = MyMatrix.PrintResult();
+            label1.Text = MyMatrix.PrintResult();
         }
 
     }

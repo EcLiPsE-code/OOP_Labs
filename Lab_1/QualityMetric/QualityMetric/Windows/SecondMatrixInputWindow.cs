@@ -20,42 +20,51 @@ namespace QualityMetric
         public SecondMatrixInputWindow()
         {
             InitializeComponent();
-            this.Load += SecondMatrixInputWindow_Load;
         }
         private void SaveData_2(object sender, EventArgs e)
         {
-            string[] lines = textBox10.Text.Split('\n');
-            countRownMatrix = lines.Length;
-            countColumnMatrix = lines[0].Split(' ').Length;
-            secondArray = new int[countRownMatrix, countColumnMatrix];
-
-            for (int i = 0; i < countRownMatrix; i++)
+            try
             {
-                string[] line = lines[i].Split(' ');
-                for (int j = 0; j < line.Length; j++)
+                string[] lines = textBox10.Text.Split('\n');
+                countRownMatrix = lines.Length;
+                countColumnMatrix = lines[0].Split(' ').Length;
+                secondArray = new int[countRownMatrix, countColumnMatrix];
+
+                for (int i = 0; i < countRownMatrix; i++)
                 {
-                    secondArray[i, j] = Convert.ToInt32(line[j]);
+                    string[] line = lines[i].Split(' ');
+                    for (int j = 0; j < line.Length; j++)
+                    {
+                        secondArray[i, j] = Convert.ToInt32(line[j]);
+                    }
+                }
+                if(countColumnMatrix != countRownMatrix)
+                {
+                    throw new FormatException("Uncrottect format matrix");
+                }
+                if (secondArray != null)
+                {
+                    MyMatrix.predict = secondArray;
+                    MyMatrix.ColumnPredict = countColumnMatrix;
+                    MyMatrix.RownPredict = countRownMatrix;
+                    MyMatrix.ProverkaPredict();
+
+                    MessageBox.Show("Вторая матрица успешно прочитана");
+                    Close();
                 }
             }
-            if (secondArray != null)
+            catch (FormatException ex)
             {
-                MyMatrix.predict = secondArray;
-                MyMatrix.ColumnPredict = countColumnMatrix;
-                MyMatrix.RownPredict = countRownMatrix;
-                MessageBox.Show("Вторая матрица успешно прочитана");
-                Close();
+                MessageBox.Show(ex.Message);
             }
-            else
+            catch(ArgumentException ex)
             {
-                MessageBox.Show("Matrix is empty");
+                MessageBox.Show(ex.Message);
             }
-        }
-
-        private void SecondMatrixInputWindow_Load(object sender, EventArgs e)
-        {
-            MyMatrix.predict = secondArray;
-            MyMatrix.ColumnPredict = countColumnMatrix;
-            MyMatrix.RownPredict = countRownMatrix;
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }
